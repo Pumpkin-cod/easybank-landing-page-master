@@ -1,0 +1,133 @@
+@use '../util/' as u;
+
+.hero
+{
+    background-color: u.$veryLightGray;
+
+    .container
+    {
+        @include u.breakpoint-up(xlarge)
+        {
+
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    &__image
+    {
+        position: relative;
+        background-image: url('../../../images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+
+        @include u.breakpoint-up(large)
+        {
+            min-height: 25rem;
+        }
+
+        @include u.breakpoint-up(xlarge)
+        {
+            height: 41rem;
+            flex: 3;
+            order: 2;
+            background-image: none;
+            // background-image: url('../../../images/bg-intro-desktop.svg');
+            // background-position: left center;
+        }
+
+        &::before
+        {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../../images/bg-intro-desktop.svg');
+            background-size: 93%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+
+            @include u.breakpoint-up(large)
+            {
+                background-size: 52%;
+                background-position: center 60%;
+            }
+
+            @include u.breakpoint-up(xlarge)
+            {
+                width: 150%;
+                background-size: 122%;
+                background-position: 0% 83%;
+
+            }
+        }
+
+        &::after
+        {
+            content: " ";
+            position: absolute;
+            width: 100%;
+            height: 120%;
+            background-image: url('../../../images/image-mockups.png');
+            background-size: 93%;
+            background-repeat: no-repeat;
+            background-position: center 110%;
+
+            @include u.breakpoint-up(large)
+            {
+                width: 100%;
+                height: 100%;
+                background-size: 50%;
+                background-repeat: no-repeat;
+                background-position: center 100%;
+            }
+
+            @include u.breakpoint-up(xlarge)
+            {
+                content: " ";
+                position: absolute;
+                width: 120%;
+                height: 122%;
+                background-size: 94%;
+                background-repeat: no-repeat;
+                background-position: center 150%;
+                left: 22%;
+
+            }
+        }
+
+
+    }
+
+    &__text
+    {
+        text-align: center;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            flex: 2;
+            order: 1;
+            text-align: left;
+        }
+// used/inserted in the boilerplate
+        // h1
+        // {
+        //     font-weight: u.$weight-sm;
+        //     line-height: 1.2;
+        //     color: u.$darkBlue;
+        //     font-size: u.$font-xlarge;
+        //     margin-bottom: 1.5rem;
+
+        //     @include u.breakpoint-up(xlarge)
+        //     {
+        //         font-size: u.$font-xxlarge;
+        //     }
+        // }
+
+      
+
+    }
+}

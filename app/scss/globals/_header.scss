@@ -1,0 +1,134 @@
+@use '../util/' as u;
+
+.header
+{
+    &.open
+    {
+        .header__toggle{
+
+                >span:first-child
+                    {
+                        transform: rotate(45deg);
+                    }
+                
+                    >span:nth-child(2)
+                    {
+                        opacity: 0;
+                    }
+                
+                    >span:last-child
+                    {
+                        transform: rotate(-45deg);
+                    }
+        }
+    
+    }
+
+    .overlay
+    {
+        position: fixed;
+        // top: 3.75rem;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-image: linear-gradient(u.$darkBlue, transparent);
+    }
+
+    nav
+    {   position: relative;
+        background-color: u.$white;
+        padding-top: 1.0625rem;
+        padding-bottom: 1.0625rem;
+    }
+
+    &__logo
+    {
+        img
+        {
+            width: 8.8125rem;
+            height: 1.375rem;
+        }
+
+    }
+
+    &__toggle
+    {
+        >span
+        {
+            display: block;
+            width: 26px;
+            height: 5px;
+            background-color: u.$darkBlue;
+            transition: all 300ms ease-in-out;
+            transform-origin: 2px 2px;
+
+            &:not(:last-child)
+            {
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    &__menu{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 3rem);
+        background-color: u.$white;
+        padding: 1.625rem;
+        border-radius: 6px;
+        margin-top: 1.5rem;
+
+        a{
+            display: block;
+            padding: 0.625rem;
+            color: u.$darkBlue;
+            text-align: center;    
+        }
+    }
+
+    &__link
+    {
+        a
+        {
+            position: relative;
+            font-size: u.$font-sm;
+            transition: color 300ms ease-in-out;
+
+            &:not(:last-child)
+            {
+                margin-right: 32px;
+            }
+
+            &::before
+            {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                background: linear-gradient(to right, u.$limeGreen, u.$brightCyan);
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+            }
+
+            &:hover
+            {
+                color: u.$darkBlue;
+
+                &::before
+                {
+                    // background: linear-gradient(to right, u.$limeGreen, u.$brightCyan);
+                    opacity: 1;
+                }
+            }
+
+
+        }
+    }
+
+
+}

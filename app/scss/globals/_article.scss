@@ -1,0 +1,84 @@
+@use '../util/' as u;
+
+.article
+{
+    background-color: u.$veryLightGray;
+
+  
+    &__grid
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.875rem;
+
+        // for Tablets
+        @include u.breakpoint-up(large)
+        {
+            // This creates 2 columns on a tablet
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        // for Desktops
+        @include u.breakpoint-up(xlarge)
+        {
+            // This creates 4 columns on a desktop
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__item
+    {
+        background-color: u.$white;
+        border-radius: 0.3125rem;
+        overflow: hidden;
+        box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+        transition: all 200ms ease-in-out;
+
+        &:hover{
+            // makes it a bit larger( 1 is 100% and 1.05 is 105%)
+            transform: scale(1.05);
+            
+        }
+    }
+
+    &__image
+    {
+        height: 12.5rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    &__text
+    {
+        padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+        color: u.$grayishBlue;
+
+        @include u.breakpoint-up(large)
+        {
+            padding: 1.875rem 1.625rem;
+        }
+    }
+
+    &__author
+    {
+        font-size: 0.625rem;
+        margin-bottom: 0.7rem;
+    }
+
+    &__title
+    {
+        font-size: u.$font-med;
+        line-height: 1.2;
+        color: u.$darkBlue;
+        margin-bottom: 0.5rem;
+    }
+
+
+    &__description
+    {
+        font-size: 0.8125rem;
+        line-height: 1.5;
+
+    }
+}

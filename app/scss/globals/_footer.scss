@@ -1,0 +1,160 @@
+@use '../util/' as u;
+
+.footer
+{
+    background-color: u.$darkBlue;
+    color: u.$white;
+    padding: 2.5rem;
+    text-align: center;
+
+
+
+    .container
+    {
+        @include u.breakpoint-up(xlarge)
+        {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 2fr;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-areas: "logo links1 links2 button" "socials links1 links2 copyright";
+            justify-items: start;
+        }
+    }
+
+    a
+    {
+        color: u.$white;
+    }
+
+    &__logo
+    {
+        display: inline-block;
+
+        @include u.breakpoint-down(large)
+        {
+            margin-bottom: 1.875rem;
+        }
+
+        @include u.breakpoint-up(xlarge)
+        {
+            grid-area: logo;
+        }
+    }
+
+    &__socials
+    {
+        @include u.breakpoint-down(large)
+        {
+            margin-bottom: 1.875rem;
+        }
+
+
+        @include u.breakpoint-up(xlarge)
+        {
+            grid-area: socials;
+            align-self: end;
+        }
+
+        a
+        {
+            display: inline-block;
+            height: 1.25rem;
+
+            svg path
+            {
+                transition: fill 200ms ease-in-out;
+            }
+
+            &:hover svg path
+            {
+                fill: u.$limeGreen;
+            }
+        }
+
+        a:not(:last-child)
+        {
+
+            margin-right: 1rem;
+        }
+    }
+
+    &__links
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 2;
+        font-size: u.$font-sm;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            align-items: flex-start;
+            padding-left: 6rem;
+        }
+
+        &.first
+        {
+            @include u.breakpoint-up(xlarge)
+            {
+                grid-area: links1;
+            }
+        }
+
+        &.second
+        {
+
+            @include u.breakpoint-down(large)
+            {
+                margin-bottom: 1.875rem;
+            }
+
+            @include u.breakpoint-up(xlarge)
+            {
+                grid-area: links2;
+            }
+        }
+
+        a
+        {
+            transition: fill 200ms ease-in-out;
+            
+            &:hover
+            {
+                color: u.$limeGreen;
+            }
+        }
+    }
+
+    &__button
+    {
+
+        @include u.breakpoint-up(xlarge)
+        {
+            grid-area: button;
+            text-align: right;
+            justify-self: end;
+        }
+
+        & button
+        {
+            @include u.breakpoint-down(large)
+            {
+                margin-bottom: 1.875rem;
+            }
+        }
+    }
+
+    &__copyright
+    {
+        font-size: u.$font-sm;
+        color: u.$grayishBlue;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            grid-area: copyright;
+            text-align: right;
+            justify-self: end;
+            align-self: end;
+        }
+    }
+}

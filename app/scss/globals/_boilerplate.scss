@@ -1,0 +1,193 @@
+@use '../util/' as u;
+
+html
+{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after
+{
+    box-sizing: inherit;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: u.$font;
+    line-height: 1.3;
+    font-weight: u.$weight-sm;
+    font-size: u.$font-med;
+    color: u.$darkBlue;
+    overflow-x: hidden;
+
+    @include u.breakpoint-up(large)
+    {
+        font-size: u.$font-med;
+    }
+
+    &.noscroll
+    {
+        overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3
+    {
+        margin-top: 0px;
+        font-weight: u.$weight-sm;
+        line-height: 1.2;
+        color: u.$darkBlue;
+    }
+
+    h1
+    {
+
+        font-size: u.$font-xlarge;
+        margin-bottom: 1.5rem;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            font-size: u.$font-xxlarge;
+        }
+    }
+
+    h2
+    {
+        font-size: u.$font-large;
+        margin-bottom: 1.5625rem;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            font-size: u.$font-xlarge;
+            margin-bottom: 2.25rem;
+        }
+    }
+
+    p
+    {
+        line-height: 1.5;
+        margin-bottom: 2.25rem;
+    }
+}
+
+a,
+a:visited,
+a:hover
+{
+    text-decoration: none;
+    color: u.$grayishBlue;
+}
+
+.container
+{
+    max-width: 69.375rem;
+    margin: 0 auto;
+
+    // pall stands for padding for all sides
+    &--pall
+    {
+        padding: 2.25rem 1.5rem;
+    }
+
+    // py stands for padding for top and bottom
+    &--py
+    {
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+    }
+
+    // py stands for padding for left and right
+    &--px
+    {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    // py stands for padding for bottom
+    &--pb
+    {
+        padding-bottom: 2.25rem;
+    }
+
+    // py stands for padding for top 
+    &--pt
+    {
+        padding-top: 2.25rem;
+    }
+
+    // py stands for padding for right
+    &--pr
+    {
+        padding-right: 1.5rem;
+    }
+
+    // py stands for padding for left
+    &--pl
+    {
+        padding-left: 1.5rem;
+    }
+}
+
+// flexbox styles
+.flex
+{
+    display: flex;
+
+    &-jc-sb
+    {
+        justify-content: space-between;
+    }
+
+    &-jc-c
+    {
+        justify-content: center;
+    }
+
+    &-ai-c
+    {
+        align-items: center;
+    }
+}
+
+// Buttons
+button,
+.button
+{
+    padding: 0.875rem 2.1875rem;
+    background: linear-gradient(to right, u.$limeGreen, u.$brightCyan);
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    font-weight: u.$weight-med;
+    color: u.$white;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover
+    {
+        opacity: 0.75;
+    }
+}
+
+
+// visibility
+.hide-for-mobile
+{
+    @include u.breakpoint-down(medium)
+    {
+        display: none;
+    }
+}
+
+
+.hide-for-desktop
+{
+    @include u.breakpoint-up(large)
+    {
+        display: none;
+    }
+}

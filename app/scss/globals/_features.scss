@@ -1,0 +1,86 @@
+@use '../util/' as u;
+
+.features
+{
+    background-color: u.$lightGrayishBlue;
+    text-align: center;
+
+// For Tablets
+    @include u.breakpoint-up(large){
+        text-align: left;
+    }
+    &__intro
+    {
+        margin-bottom: 3.75rem;
+
+        // For Desktops
+        @include u.breakpoint-up(xlarge)
+        {
+            width: 60%;
+        }
+    }
+
+    &__grid
+    {
+
+        // For Tablets
+        @include u.breakpoint-up(large)
+        {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item
+    {
+        padding: 0.9375rem;
+
+        // For Tablets
+        @include u.breakpoint-up(large)
+        {
+            // using flex propert here.
+            // flex grow-flex shrink-flex basis
+            flex: 0 0 50%;
+
+        }
+
+        // For Desktops
+        @include u.breakpoint-up(xlarge)
+        {
+            flex: 1;
+        }
+    }
+
+    &__icon
+    {
+        margin-bottom: 1.875rem;
+
+        // For Desktops
+        @include u.breakpoint-up(xlarge)
+        {
+
+            margin-bottom: 2.75rem;
+        }
+    }
+
+    &__title
+    {
+        line-height: 1.3;
+        font-weight: u.$weight-sm;
+        font-size: u.$font-med;
+        color: u.$darkBlue;
+        margin-bottom: 1rem;
+
+        @include u.breakpoint-up(xlarge)
+        {
+            font-size: u.$font-large;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__description
+    {
+        font-size: u.$font-sm;
+        line-height: 1.5;
+    }
+}

@@ -1,0 +1,51 @@
+// This is the default state of the all the elements we are fading
+.faded
+{
+    visibility: hidden;
+}
+
+// creating animation to fade in anf out when the hamburger menu is opened and closed
+@keyframes fade-in{
+    from{
+        visibility: hidden;
+        opacity: 0;
+    }
+    1%{
+        visibility: visible;
+        opacity: 0;
+    }
+    to{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+// This is a class to be used in javascript(classList) for the overlay function
+.fade-in{
+    animation: fade-in 200ms ease-in-out forwards;
+}
+
+
+@keyframes fade-in
+{
+    from
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+    99%{
+        visibility: visible;
+        opacity: 0;
+    }
+    to
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+
+// This is a class to be used in javascript(classList) for the overlay function
+.fade-out{
+    animation: fade-out 200ms ease-in-out forwards;
+}
+
